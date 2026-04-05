@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: ai-agent-system-config
+  namespace: ai-agent-system
+data:
+  APP_NAME: ai-agent-system
+  APP_ENV: prod
+  LOG_LEVEL: INFO
+  ALLOWED_TOOLS: summarize,classify,retrieve_context
+  MAX_INPUT_CHARS: "12000"
