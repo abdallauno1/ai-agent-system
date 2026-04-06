@@ -7,12 +7,12 @@ from app.services.tool_registry import ToolRegistry
 
 router = APIRouter()
 settings = get_settings()
-<<<<<<< HEAD
+
 agent_service = AgentService(ToolRegistry())
-=======
+
 registry = ToolRegistry()
 agent_service = AgentService(registry)
->>>>>>> 4be58da (add day 2: retrieval and agent flow improvements)
+
 
 
 @router.get("/healthz", response_model=HealthResponse)
@@ -27,16 +27,15 @@ def readyz() -> HealthResponse:
 
 @router.get("/api/v1/tools")
 def list_tools() -> dict:
-<<<<<<< HEAD
+
     return {"tools": ToolRegistry().list_tools()}
-=======
+
     return {"tools": registry.list_tools()}
 
 
 @router.get("/api/v1/tools/details")
 def list_tool_details() -> dict:
     return {"tools": registry.describe_tools()}
->>>>>>> 4be58da (add day 2: retrieval and agent flow improvements)
 
 
 @router.post("/api/v1/tasks/run", response_model=TaskResponse)
