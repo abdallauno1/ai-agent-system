@@ -14,9 +14,9 @@ def test_healthz():
 def test_list_tools():
     response = client.get("/api/v1/tools")
     assert response.status_code == 200
-<<<<<<< HEAD
+
     assert "summarize" in response.json()["tools"]
-=======
+
     tools = response.json()["tools"]
     assert "summarize" in tools
     assert "answer_with_context" in tools
@@ -27,7 +27,6 @@ def test_tool_details():
     assert response.status_code == 200
     details = response.json()["tools"]
     assert any(item["name"] == "retrieve_context" for item in details)
->>>>>>> 4be58da (add day 2: retrieval and agent flow improvements)
 
 
 def test_run_task_summarize():
@@ -41,7 +40,7 @@ def test_run_task_summarize():
     body = response.json()
     assert body["status"] == "success"
     assert body["selected_tool"] == "summarize"
-<<<<<<< HEAD
+
 
 
 def test_run_task_classify():
@@ -52,7 +51,7 @@ def test_run_task_classify():
     response = client.post("/api/v1/tasks/run", json=payload)
     assert response.status_code == 200
     assert response.json()["selected_tool"] == "classify"
-=======
+
     assert body["attempts"][0]["status"] == "success"
 
 
@@ -78,4 +77,3 @@ def test_run_task_retrieve_context():
     body = response.json()
     assert body["selected_tool"] == "retrieve_context"
     assert body["output"]["context_count"] >= 1
->>>>>>> 4be58da (add day 2: retrieval and agent flow improvements)
