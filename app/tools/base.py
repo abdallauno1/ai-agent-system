@@ -11,9 +11,6 @@ class Tool(ABC):
     @abstractmethod
     def run(self, request: TaskRequest) -> Dict[str, Any]:
         raise NotImplementedError
-<<<<<<< HEAD
-=======
 
     def should_retry(self, exception: Exception) -> bool:
         return False
->>>>>>> 4be58da (add day 2: retrieval and agent flow improvements)

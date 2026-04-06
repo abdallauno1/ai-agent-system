@@ -11,12 +11,9 @@ TASK_DURATION_SECONDS = Histogram(
     "Task execution duration in seconds",
     ["tool"],
 )
-<<<<<<< HEAD
-=======
 
 TOOL_ATTEMPTS_TOTAL = Counter(
     "ai_agent_tool_attempts_total",
     "Total tool execution attempts",
     ["tool", "status"],
 )
->>>>>>> 4be58da (add day 2: retrieval and agent flow improvements)

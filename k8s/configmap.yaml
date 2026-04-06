@@ -7,13 +7,8 @@ data:
   APP_NAME: ai-agent-system
   APP_ENV: prod
   LOG_LEVEL: INFO
-<<<<<<< HEAD
-  ALLOWED_TOOLS: summarize,classify,retrieve_context
-  MAX_INPUT_CHARS: "12000"
-=======
   ALLOWED_TOOLS: summarize,classify,retrieve_context,answer_with_context
   MAX_INPUT_CHARS: "12000"
   DEFAULT_FALLBACK_TOOL: classify
   RETRY_ATTEMPTS: "2"
   RETRIEVE_TOP_K: "3"
->>>>>>> 4be58da (add day 2: retrieval and agent flow improvements)
