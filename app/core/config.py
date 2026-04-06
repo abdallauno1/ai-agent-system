@@ -11,9 +11,18 @@ class Settings(BaseSettings):
     log_level: str = "INFO"
     host: str = "0.0.0.0"
     port: int = 8000
+<<<<<<< HEAD
     allowed_tools: List[str] = ["summarize", "classify", "retrieve_context"]
     max_input_chars: int = 12000
     default_summary_sentences: int = 2
+=======
+    allowed_tools: List[str] = ["summarize", "classify", "retrieve_context", "answer_with_context"]
+    max_input_chars: int = 12000
+    default_summary_sentences: int = 2
+    default_fallback_tool: str = "classify"
+    retry_attempts: int = 2
+    retrieve_top_k: int = 3
+>>>>>>> 4be58da (add day 2: retrieval and agent flow improvements)
 
     model_config = SettingsConfigDict(env_file=".env", case_sensitive=False)
 

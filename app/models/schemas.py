@@ -14,6 +14,17 @@ class TaskRequest(BaseModel):
 class AgentDecision(BaseModel):
     selected_tool: str
     rationale: str
+<<<<<<< HEAD
+=======
+    fallback_tool: Optional[str] = None
+
+
+class ToolExecutionAttempt(BaseModel):
+    tool: str
+    status: Literal["success", "error", "skipped"]
+    duration_ms: float
+    detail: str
+>>>>>>> 4be58da (add day 2: retrieval and agent flow improvements)
 
 
 class TaskResponse(BaseModel):
@@ -22,6 +33,10 @@ class TaskResponse(BaseModel):
     selected_tool: str
     rationale: str
     output: Dict[str, Any]
+<<<<<<< HEAD
+=======
+    attempts: List[ToolExecutionAttempt] = Field(default_factory=list)
+>>>>>>> 4be58da (add day 2: retrieval and agent flow improvements)
 
 
 class HealthResponse(BaseModel):
