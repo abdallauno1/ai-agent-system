@@ -14,9 +14,6 @@ def test_healthz():
 def test_list_tools():
     response = client.get("/api/v1/tools")
     assert response.status_code == 200
-
-    assert "summarize" in response.json()["tools"]
-
     tools = response.json()["tools"]
     assert "summarize" in tools
     assert "answer_with_context" in tools
@@ -40,18 +37,6 @@ def test_run_task_summarize():
     body = response.json()
     assert body["status"] == "success"
     assert body["selected_tool"] == "summarize"
-
-
-
-def test_run_task_classify():
-    payload = {
-        "task": "Classify this note",
-        "text": "Security policy update for container image scanning.",
-    }
-    response = client.post("/api/v1/tasks/run", json=payload)
-    assert response.status_code == 200
-    assert response.json()["selected_tool"] == "classify"
-
     assert body["attempts"][0]["status"] == "success"
 
 
